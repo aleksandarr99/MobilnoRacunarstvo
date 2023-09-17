@@ -1,0 +1,3 @@
+<ion-list class=" list">
+  <app-seller-car-card  class="w-100" (deleteEvent)="handleDeletedItem($event)"  [carPost]="carPost" *ngFor="let carPost of carPosts" ></app-seller-car-card>
+</ion-list>

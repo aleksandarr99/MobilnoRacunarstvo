@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log In</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="vh-100">
+  <div *ngIf="showError" class="w-100 bg-danger p-3 text-white text-center">{{errorMessage}}</div>
+
+  <form #form="ngForm"  class="p-3" (ngSubmit)="login(form)" >
+    <ion-item [ngClass]="{'not-valid':isFormValid(form)}" lines="full">
+      <ion-label  aria-label="email" position="floating">Email</ion-label>
+      <ion-input email aria-required="true" name="email" id="email" ngModel type="text" required></ion-input>
+    </ion-item>
+    <ion-item  [ngClass]="{'not-valid':isFormValid(form)}" lines="full">
+      <ion-label aria-label="password" position="floating">Password</ion-label>
+      <ion-input  minlength="6" aria-required="true" ngModel name="password" id="password"  type="password" required></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block" >
+          <div *ngIf="isLoading; else textSignIn" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <ng-template #textSignIn>
+            Sign In
+          </ng-template>
+        </ion-button>
+        <ion-button class="mt-4" type="button"   (click)="navigateToSignUp()" expand="block">Sign Up</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

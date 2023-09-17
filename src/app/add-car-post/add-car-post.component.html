@@ -1,0 +1,28 @@
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input [ngClass]="{'not-valid':myForm.invalid  && submitted }" formControlName="name" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Price</ion-label>
+      <ion-input  [ngClass]="{'not-valid':myForm.invalid  && submitted }" formControlName="price" type="number" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-input [ngClass]="{'not-valid':myForm.invalid &&  submitted }" formControlName="description" type="text" required></ion-input>
+    </ion-item>
+
+<ion-item>
+  <ion-label>Picure</ion-label>
+  <input type="file" (change)="setFile($event)" >
+</ion-item>
+    <div *ngIf="fileToSave">
+      <img [src]="imageSrc">
+
+    </div>
+    <ion-button type="submit" expand="full">Submit</ion-button>
+  </form>
+
+
+</ion-content>

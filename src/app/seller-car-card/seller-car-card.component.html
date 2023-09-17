@@ -1,0 +1,20 @@
+<ion-item >
+  <ion-card  style="width: 100%;display: flex;flex-direction: column;justify-content: center">
+    <img alt="Silhouette of mountains"
+         [src]="carPost.image_path" height="300px"/>
+    <p class="w-100 text-center">{{carPost?.date_published | date}}</p>
+
+    <ion-card-header class="w-100 d-flex justify-content-center">
+      <ion-card-title class="text-center">{{carPost?.name}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="d-flex justify-content-center" style="color: #3a7be0;font-size: x-large">{{carPost?.price}}$</div>
+    </ion-card-content>
+    <ion-card-content class="w-100 d-flex justify-content-center">
+      <ion-button class="col-6" (click)="deleteCarPost(carPost?.id)">Delete</ion-button>
+      <ion-button class="col-6" (click)="editCarPost()">Edit</ion-button>
+    </ion-card-content>
+
+  </ion-card>
+</ion-item>

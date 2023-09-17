@@ -1,0 +1,23 @@
+input[type="radio"]{
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  transition: 300ms ease-in;
+}
+
+label {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  background-color: #454545;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 3px;
+  transition: 300ms ease-in;
+}
+
+input[type="radio"]:checked + label{
+  background-color: #3dc2ff;
+  font-size: 130%;
+}

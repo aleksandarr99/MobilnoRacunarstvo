@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="vh-100">
+  <div *ngIf="showError" class="w-100 bg-danger p-3 text-white text-center">{{errorMessage}}</div>
+  <form #form=ngForm (ngSubmit)="signIn(form)">
+    <ion-item lines="full" [ngClass]="{'not-valid':isFormValid(form)}">
+      <ion-label position="floating">First name</ion-label>
+      <ion-input ngModel type="text" name="firstName" id="first_name" required></ion-input>
+    </ion-item>
+    <ion-item lines="full" [ngClass]="{'not-valid':isFormValid(form)}">
+      <ion-label position="floating">Last name</ion-label>
+      <ion-input ngModel type="text" name="lastName" id="last_name" required></ion-input>
+    </ion-item>
+    <ion-item lines="full" [ngClass]="{'not-valid':isFormValid(form)}">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input ngModel type="text" name="email" id="email" email required></ion-input>
+    </ion-item>
+    <ion-item lines="full" [ngClass]="{'not-valid':isFormValid(form)}">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input ngModel type="password" name="password" id="password" minlength="6" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <app-radio-button-custom (selectedRoleEmitter)="handleChangeRole($event)" class="w-100">
+      </app-radio-button-custom>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Sign Up</ion-button>
+        <ion-button class="mt-4" type="button" router-direction="forward" routerLink="/login" expand="block">Sign In</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
